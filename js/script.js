@@ -2,8 +2,6 @@
   'use strict';
 
   var WHATSAPP_NUMBER = '5519999717781';
-  var STORAGE_KEY = 'flConectaLeads';
-  var PORTAL_URL = 'https://portal.flconectadigital.com.br/';
 
   function setYear() {
     var el = document.getElementById('year');
@@ -87,17 +85,6 @@
     if (error) error.textContent = message;
   }
 
-  function saveLead(data) {
-    try {
-      var current = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      if (!Array.isArray(current)) current = [];
-      current.push(Object.assign({ savedAt: new Date().toISOString() }, data));
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
-    } catch (error) {
-      console.warn('Não foi possível salvar os dados localmente.', error);
-    }
-  }
-
   function initForm() {
     var form = document.getElementById('lead-form');
     if (!form) return;
@@ -130,9 +117,6 @@
       if (!data.necessidade) { showError(necessidade, 'Selecione uma opção.'); valid = false; }
       if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) { showError(email, 'Informe um e-mail válido.'); valid = false; }
       if (!valid) return;
-
-      data.portal = PORTAL_URL;
-      saveLead(data);
 
       var message =
         'Olá! Quero uma orientação da FL Conecta Digital.\n\n' +
