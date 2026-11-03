@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flconectadigital.com.br/sitemap.xml
