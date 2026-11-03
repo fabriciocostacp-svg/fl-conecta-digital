@@ -1,5 +1,7 @@
 # 🌐 FL Conecta Digital
 
+![Tela inicial do site da FL Conecta Digital](docs/preview.jpg)
+
 <p align="center">
   <img src="assets/images/logo-fl-conecta.svg" alt="FL Conecta Digital" width="420">
 </p>
